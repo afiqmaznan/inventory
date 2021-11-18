@@ -34,7 +34,8 @@
                 <img v-if="imageview" :src="imageview" class="img-thumbnail mt-3">
             </div>
             <div class="col text-center mt-3">
-                <input type="submit" class="btn btn-primary btn-block" value="Save" />
+                <inertia-link :href="$route('products.index')" as="button" class="btn btn-danger btn-block me-3">Cancel</inertia-link>
+                <input type="submit" class="btn btn-success btn-block" value="Save" />
             </div>
         </form>
     </div>

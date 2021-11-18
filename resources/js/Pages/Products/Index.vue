@@ -26,9 +26,9 @@
                         <td class="text-center align-middle">{{product.description}}</td>
                         <td class="text-center align-middle"><img :src="'uploads/'+product.image" alt="a" style="width:100px; height:auto;"></td>
                         <td class="text-center align-middle">
-                            <inertia-link :href="$route('products.show', product.id)" class="btn btn-sm btn-primary ms-3">View</inertia-link>
-                            <inertia-link :href="$route('products.edit', product.id)" class="btn btn-sm btn-warning ms-3">Edit</inertia-link>
-                            <inertia-link @click="destroy(product.id)" class="btn btn-sm btn-danger ms-3">Delete</inertia-link>
+                            <inertia-link :href="$route('products.show', product.id)" class="btn btn-sm btn-primary ms-1">View</inertia-link>
+                            <inertia-link :href="$route('products.edit', product.id)" class="btn btn-sm btn-warning ms-1">Edit</inertia-link>
+                            <inertia-link @click="destroy(product.id)" class="btn btn-sm btn-danger ms-1">Delete</inertia-link>
                         </td>
                     </tr>
                 </tbody>

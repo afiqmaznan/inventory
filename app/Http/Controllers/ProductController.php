@@ -67,7 +67,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return Inertia::render('Products/Show', ['product' => $product]);
     }
 
     /**
@@ -90,17 +90,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $request->validate([
+        $this->validate($request, [
             'sku' => 'required|unique:products,sku,' . $product->id,
             'title' => 'required',
             'quantity' => 'required|integer|min:1',
             'description' => 'required',
         ]);
         
-        $product->sku = $request->sku;
-        $product->title = $request->title;
-        $product->quantity = $request->quantity;
-        $product->description = $request->description;
+        $product->fill($request->all());
         if($request->image != $product->image) {
             $image = $request->file('image');
             $imageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
