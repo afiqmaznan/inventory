@@ -26,7 +26,7 @@
                     <div class="row align-items-center">
                         <div class="col mr-2">
                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800 mb-1">Total Products in Inventory</div>
-                            <div class="text-xs font-weight-bold">1</div>
+                            <div class="text-xs font-weight-bold">{{this.productCount}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa fa-dolly-flatbed fa-2x text-warning"></i>
@@ -41,7 +41,7 @@
                     <div class="row align-items-center">
                         <div class="col mr-2">
                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800 mb-1">Total Registered Users</div>
-                            <div class="text-xs font-weight-bold">1</div>
+                            <div class="text-xs font-weight-bold">{{this.userCount}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fa fa-users fa-2x text-danger"></i>
@@ -64,6 +64,34 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
         return {
             user
+        }
+    },
+    data() {
+        return {
+            productCount: 0,
+            userCount: 0,
+        }
+    },
+    beforeMount(){
+        this.countProducts();
+        this.countUsers();
+    },
+    methods: {
+        countProducts() {
+            axios.get('/count/products')
+                .then(response => {
+                    this.productCount = response.data;
+                }).catch(err=>{
+                    console.log(err);
+                });
+        },
+        countUsers() {
+            axios.get('/count/users')
+                .then(response => {
+                    this.userCount = response.data;
+                }).catch(err=>{
+                    console.log(err);
+                });
         }
     }
 }

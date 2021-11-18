@@ -120,4 +120,8 @@ class ProductController extends Controller
         $product->delete();
         return Redirect::route('products.index');
     }
+
+    public function count(){
+        return Product::all()->count();
+    }
 }

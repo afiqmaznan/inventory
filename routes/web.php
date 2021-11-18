@@ -35,4 +35,6 @@ Route::group(['middleware' => 'auth'], function() {
     })->name('dashboard');
 
     Route::resource('products', ProductController::class);
+    Route::get('count/products', [ProductController::class, 'count']);
+    Route::get('count/users', [LoginController::class, 'count']);
 });
