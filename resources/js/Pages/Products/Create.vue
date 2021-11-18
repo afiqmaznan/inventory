@@ -31,7 +31,7 @@
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" class="form-control" v-on:change="onFileChange">
                 <div v-if="errors.image" class="text-danger">{{ errors.image }}</div>
-                <img v-if="imageview" :src="imageview" class="img-thumbnail">
+                <img v-if="imageview" :src="imageview" class="img-thumbnail mt-3">
             </div>
             <div class="col text-center mt-3">
                 <input type="submit" class="btn btn-primary btn-block" value="Save" />
