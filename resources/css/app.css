@@ -11,16 +11,11 @@
 
 .box-register {
     width: 390px;
-    background: #fff;
+    background: #190b42;
     border-radius: 10px;
     overflow: hidden;
     padding: 40px 55px 33px 55px;
-
-    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    color:white;
 }
 .form-group {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

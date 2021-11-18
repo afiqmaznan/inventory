@@ -37,7 +37,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'sku' => 'required|unique:products',
+            'title' => 'required',
+            'quantity' => 'required|integer|min:1',
+            'description' => 'required',
+            'image' => 'required'
+        ]);
+
+        $product = new Product();
+        $product->fill($request->all());
+        if($request->image) {
+            $image = $request->file('image');
+            $imageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads'), $imageName);
+            $product->image = $imageName;
+        }
+        $product->save();
+        
+        return redirect()->route('products.index');
     }
 
     /**
