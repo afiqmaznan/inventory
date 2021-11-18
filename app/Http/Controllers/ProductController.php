@@ -78,7 +78,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return Inertia::render('Products/Edit', ['product' => $product]);
     }
 
     /**
@@ -90,7 +90,26 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'sku' => 'required|unique:products,sku,' . $product->id,
+            'title' => 'required',
+            'quantity' => 'required|integer|min:1',
+            'description' => 'required',
+        ]);
+        
+        $product->sku = $request->sku;
+        $product->title = $request->title;
+        $product->quantity = $request->quantity;
+        $product->description = $request->description;
+        if($request->image != $product->image) {
+            $image = $request->file('image');
+            $imageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads'), $imageName);
+            $product->image = $imageName;
+        }
+        $product->save();
+        
+        return redirect()->route('products.index');
     }
 
     /**
