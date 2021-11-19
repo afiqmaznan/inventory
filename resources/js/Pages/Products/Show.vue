@@ -5,7 +5,7 @@
             <h3 class="box-title">Product Details</h3>
         </div>
     </div>
-    <div class="col-4 ps-3">
+    <div class="col-6 ps-3">
         <table class="table table-borderless">
             <tbody class="">
                 <tr>
@@ -21,7 +21,7 @@
                     <th class="text-right">Description</th><td class="text-left align-middle">{{product.description}}</td>
                 </tr>
                 <tr>
-                    <th class="text-right">Image</th><td class="text-left align-middle"><img :src="imageview" style="max-width: 50%"></td>
+                    <th class="text-right">Image</th><td class="text-left align-middle"><img :src="imageview" style="width:200px; height:auto;"></td>
                 </tr>
             </tbody>
         </table>

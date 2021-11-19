@@ -5,7 +5,7 @@
             <h3 class="box-title">Edit Product</h3>
         </div>
     </div>
-    <div class="col-4 ps-3">
+    <div class="col-6 ps-3">
         <form @submit.prevent="update">
             <div class="form-group">
                 <label for="title">SKU</label>
@@ -31,7 +31,7 @@
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" class="form-control" v-on:change="onFileChange">
                 <div v-if="errors.image" class="text-danger">{{ errors.image }}</div>
-                <img v-if="imageview" :src="imageview" class="mt-3" style="max-width: 50%">
+                <img v-if="imageview" :src="imageview" class="mt-3" style="width:200px; height:auto;">
             </div>
             <div class="col text-center mt-3">
                 <inertia-link :href="$route('products.index')" as="button" class="btn btn-danger btn-block me-3">Cancel</inertia-link>

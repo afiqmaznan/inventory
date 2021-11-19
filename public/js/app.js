@@ -16672,7 +16672,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_2 = {
-  "class": "col-4 ps-3"
+  "class": "col-6 ps-3"
 };
 var _hoisted_3 = {
   "class": "form-group"
@@ -16831,7 +16831,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     src: $data.imageview,
     "class": "mt-3",
     style: {
-      "max-width": "50%"
+      "width": "200px",
+      "height": "auto"
     }
   }, null, 8
   /* PROPS */
@@ -16882,7 +16883,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_2 = {
-  "class": "col-4 ps-3"
+  "class": "col-6 ps-3"
 };
 var _hoisted_3 = {
   "class": "form-group"
@@ -17040,7 +17041,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     src: $data.imageview,
     "class": "mt-3",
     style: {
-      "max-width": "50%"
+      "width": "200px",
+      "height": "auto"
     }
   }, null, 8
   /* PROPS */
@@ -17269,7 +17271,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_2 = {
-  "class": "col-4 ps-3"
+  "class": "col-6 ps-3"
 };
 var _hoisted_3 = {
   "class": "table table-borderless"
@@ -17350,7 +17352,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.imageview,
     style: {
-      "max-width": "50%"
+      "width": "200px",
+      "height": "auto"
     }
   }, null, 8
   /* PROPS */
