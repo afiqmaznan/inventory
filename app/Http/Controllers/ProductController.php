@@ -121,7 +121,16 @@ class ProductController extends Controller
         return Redirect::route('products.index');
     }
 
-    public function count(){
+    public function count()
+    {
         return Product::all()->count();
+    }
+    
+    public function search(Request $request)
+    {
+        $products = Product::where('sku', 'LIKE','%'.$request->searchinput.'%')
+                    ->orWhere('title', 'LIKE','%'.$request->searchinput.'%')
+                    ->get();
+        return response()->json($products); 
     }
 }

@@ -37,4 +37,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('products', ProductController::class);
     Route::get('count/products', [ProductController::class, 'count']);
     Route::get('count/users', [LoginController::class, 'count']);
+    Route::get('search/products', [ProductController::class, 'search']);
 });

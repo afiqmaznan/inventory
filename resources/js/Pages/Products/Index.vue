@@ -1,14 +1,17 @@
 <template>
     <top-bar></top-bar>
-    <div class="d-flex p-3 justify-content-end">
+    <div class="d-flex p-3 justify-content-between">
+        <div class="">
+            <input type="text" class="form-control" name="search" placeholder="Search by SKU or Title" @input="filter" v-model="searchinput"/>
+        </div>
         <div class="">
             <inertia-link :href="$route('products.create')" class="btn btn-primary">+ Create New Product</inertia-link>
         </div>
     </div>
-    <div class="col-12 p-3">
+    <div class="col-12 ps-3 pe-3">
         <div class="table-responsive">
             <table class="table table-hover">
-                <thead class="">
+                <thead class="bg-dark" style="color:white;">
                 <tr>
                     <th class="text-center">SKU</th>
                     <th class="text-center">Title</th>
@@ -47,8 +50,17 @@ export default {
     components: {
         TopBar
     },
-    props: {
+    /* props: {
         products: Object,
+    }, */
+    data() {
+        return {
+            searchinput: null,
+            products: []
+        }
+    },
+    beforeMount() {
+        this.filter();
     },
     methods: {
         destroy(id) {
@@ -56,6 +68,14 @@ export default {
                 this.$inertia.delete(this.$route('products.destroy', id))
             }
         },
-    }
+        filter() {
+            axios.get('/search/products/', { params: { searchinput: this.searchinput } })
+                .then(response => {
+                    this.products = response.data;
+                }).catch(err=>{
+                    console.log(err);
+                });
+        }
+    },
 }
 </script>
