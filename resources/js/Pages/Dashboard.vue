@@ -56,6 +56,7 @@
 import TopBar from "./Components/Topbar.vue";
 import {computed} from "vue";
 import {usePage} from "@inertiajs/inertia-vue3";
+import NProgress from 'nprogress';
 export default {
     components: {
         TopBar
@@ -78,18 +79,24 @@ export default {
     },
     methods: {
         countProducts() {
+            NProgress.start();
             axios.get('/count/products')
                 .then(response => {
+                    NProgress.done();
                     this.productCount = response.data;
                 }).catch(err=>{
+                    NProgress.done();
                     console.log(err);
                 });
         },
         countUsers() {
+            NProgress.start();
             axios.get('/count/users')
                 .then(response => {
+                    NProgress.done();
                     this.userCount = response.data;
                 }).catch(err=>{
+                    NProgress.done();
                     console.log(err);
                 });
         }

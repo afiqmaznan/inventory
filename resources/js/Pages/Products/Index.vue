@@ -46,6 +46,7 @@
 </template>
 <script>
 import TopBar from "../Components/Topbar.vue";
+import NProgress from 'nprogress';
 export default {
     components: {
         TopBar
@@ -69,10 +70,13 @@ export default {
             }
         },
         filter() {
+            NProgress.start();
             axios.get('/search/products/', { params: { searchinput: this.searchinput } })
                 .then(response => {
+                    NProgress.done();
                     this.products = response.data;
                 }).catch(err=>{
+                    NProgress.done();
                     console.log(err);
                 });
         }

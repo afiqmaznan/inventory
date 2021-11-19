@@ -15884,6 +15884,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Topbar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/Topbar.vue */ "./resources/js/Pages/Components/Topbar.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -15913,18 +15916,24 @@ __webpack_require__.r(__webpack_exports__);
     countProducts: function countProducts() {
       var _this = this;
 
+      nprogress__WEBPACK_IMPORTED_MODULE_3___default().start();
       axios.get('/count/products').then(function (response) {
+        nprogress__WEBPACK_IMPORTED_MODULE_3___default().done();
         _this.productCount = response.data;
       })["catch"](function (err) {
+        nprogress__WEBPACK_IMPORTED_MODULE_3___default().done();
         console.log(err);
       });
     },
     countUsers: function countUsers() {
       var _this2 = this;
 
+      nprogress__WEBPACK_IMPORTED_MODULE_3___default().start();
       axios.get('/count/users').then(function (response) {
+        nprogress__WEBPACK_IMPORTED_MODULE_3___default().done();
         _this2.userCount = response.data;
       })["catch"](function (err) {
+        nprogress__WEBPACK_IMPORTED_MODULE_3___default().done();
         console.log(err);
       });
     }
@@ -16061,6 +16070,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Components_Topbar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Topbar.vue */ "./resources/js/Pages/Components/Topbar.vue");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
+/* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -16088,13 +16100,16 @@ __webpack_require__.r(__webpack_exports__);
     filter: function filter() {
       var _this = this;
 
+      nprogress__WEBPACK_IMPORTED_MODULE_1___default().start();
       axios.get('/search/products/', {
         params: {
           searchinput: this.searchinput
         }
       }).then(function (response) {
+        nprogress__WEBPACK_IMPORTED_MODULE_1___default().done();
         _this.products = response.data;
       })["catch"](function (err) {
+        nprogress__WEBPACK_IMPORTED_MODULE_1___default().done();
         console.log(err);
       });
     }
@@ -47477,6 +47492,18 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

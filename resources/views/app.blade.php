@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     @routes
-    <script src="{{ asset('/js/app.js?v='.time()) }}" defer></script>
+    <script src="{{ asset('/js/app.js?') }}" defer></script>
 </head>
 <body>
     <div class="">
